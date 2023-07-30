@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    nifi:
+        container_name: nifi_unaerp
+        image: apache/nifi:1.11.4
+        user: root
+        network_mode: bridge
+        ports:
+            - 8080:8080
+            - 9999:9999
+        volumes:
+            - ./nifi_unaerp/input_files:/opt/nifi_unaerp/nifi-current/input_files
+            - ./nifi_unaerp/fileprocessor:/opt/nifi/nifi-current/fileprocessor
